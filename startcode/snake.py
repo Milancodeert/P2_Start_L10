@@ -1,7 +1,9 @@
 import pygame
 
-kleur_slang = (0, 255, 0)
-veld_grootte = 20
+kleur_slang1 = (0, 255, 0)
+kleur_slang2 = (0, 200, 0)
+veld_grootte1 = 20
+veld_grootte2 = 12
 
 class Snake:
     def __init__(self, startx, starty):
@@ -23,7 +25,8 @@ class Snake:
 
     def teken(self, venster):
         for segment in self.lijst_slang:
-            pygame.draw.rect(venster, kleur_slang, pygame.Rect(segment[0], segment[1], veld_grootte, veld_grootte))
+            pygame.draw.rect(venster, kleur_slang1, pygame.Rect(segment[0], segment[1], veld_grootte1, veld_grootte1))
+            pygame.draw.rect(venster, kleur_slang2, pygame.Rect(segment[0] + 4, segment[1] + 4, veld_grootte2, veld_grootte2))
 
     def is_buiten_veld(self, breedte, hoogte):
         return self.x >= breedte or self.x < 0 or self.y >= hoogte or self.y < 0
